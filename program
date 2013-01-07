@@ -1,0 +1,381 @@
+#include <iostream>
+#include "red_polje.h"
+//#include "red_pokazivaci.h"
+
+using namespace std;
+int brojac1=0;
+
+void ispis(red *Q){
+     klijent el;
+     int br=20;
+     while (br){
+           el=FrontQ(Q);
+           DeQueueQ(Q);
+           if (el.datum[0]==0) {
+                               
+                               }
+           else {
+           cout<<"Ime i prezime klijenta: "<<el.ime<<endl;
+           cout<<"Datum rodenja: "<<el.datum[0]<<"."<<el.datum[1]<<"."<<el.datum[2]<<"."<<endl;
+           cout<<"Prioritet klijenta: ";
+           if(el.b[2]==1) cout<<"Umirovljenik."<<endl;
+           if(el.b[2]==2) cout<<"Invalid."<<endl;
+           if(el.b[2]==3) cout<<"Trudnica."<<endl;
+           if(el.b[2]==4) cout<<"VIP."<<endl;
+           if(el.b[2]==5) cout<<"Ostali klijenti banke."<<endl;
+           if(el.b[2]==6) cout<<"Nisu klijenti banke."<<endl;
+           cout<<"Vrsta transakcije koju klijent zeli obaviti: ";
+           if(el.b[3]==1) cout<<"Uplata."<<endl;
+           if(el.b[3]==2) cout<<"Isplata."<<endl;
+           if(el.b[3]==3) cout<<"Placanje racuna."<<endl;
+           if(el.b[3]==4) cout<<"Kredit."<<endl;
+           cout<<"Stanje na kunskom racunu: "<<el.stanje<<endl;
+           cout<<"Stanje na deviznom racunu: "<<el.devizni<<endl;
+           cout<<"==================================================="<<endl;
+           
+           }
+           
+           br--;
+     
+     }
+}
+
+
+void sortiranje(red *Q){
+     
+    klijent *polje = new klijent[20];
+    klijent pomocni;
+    int ii = 0;
+    while (IsEmptyQ(Q) == false) {
+        pomocni = FrontQ(Q);
+        polje[ii] = pomocni; ii++;
+        DeQueueQ(Q);
+    }
+
+  
+    klijent tmp;
+    int max;
+    for (int ai = ii-1; ai >= 1; ai--) {
+        max = 0;
+        for (int ji = 1; ji <= ai; ji++) {
+            if (polje[ji].b[2] >= polje[max].b[2]) {
+               max=ji;
+            }
+        }
+        tmp = polje[max];
+        polje[max] = polje[ai];
+        polje[ai] = tmp;
+    }
+
+   
+    for (int i = 0; i < ii; i++) {
+        EnQueueQ(polje[i], Q);
+    }
+
+ispis(Q);
+
+}
+
+void ispis2(red *Q5){
+     klijent el;
+     int br=20;
+     while (br){
+           el=FrontQ(Q5);
+           DeQueueQ(Q5);
+           if (el.datum[0]==0) {
+                               }
+           else {
+           cout<<"Ime i prezime klijenta: "<<el.ime<<endl;
+           cout<<"Datum rodenja: "<<el.datum[0]<<"."<<el.datum[1]<<"."<<el.datum[2]<<"."<<endl;
+           cout<<"Prioritet klijenta: ";
+           if(el.b[2]==1) cout<<"Umirovljenik."<<endl;
+           if(el.b[2]==2) cout<<"Invalid."<<endl;
+           if(el.b[2]==3) cout<<"Trudnica."<<endl;
+           if(el.b[2]==4) cout<<"VIP."<<endl;
+           if(el.b[2]==5) cout<<"Ostali klijenti banke."<<endl;
+           if(el.b[2]==6) cout<<"Nisu klijenti banke."<<endl;
+           cout<<"Vrsta transakcije koju klijent zeli obaviti: ";
+           if(el.b[3]==1) cout<<"Uplata."<<endl;
+           if(el.b[3]==2) cout<<"Isplata."<<endl;
+           if(el.b[3]==3) cout<<"Placanje racuna."<<endl;
+           if(el.b[3]==4) cout<<"Kredit."<<endl;
+           cout<<"Stanje na kunskom racunu: "<<el.stanje<<endl;
+           cout<<"Stanje na deviznom racunu: "<<el.devizni<<endl;
+           cout<<"==================================================="<<endl;
+           }
+           br--;
+     
+     }
+}
+
+
+void sortiranje2(red *Q5){
+  
+    klijent *polje = new klijent[20];
+    klijent pomocni;
+    int ii = 0;
+    while (IsEmptyQ(Q5) == false) {
+        pomocni = FrontQ(Q5);
+        polje[ii] = pomocni; ii++;
+        DeQueueQ(Q5);
+    }
+
+  
+    klijent tmp;
+    int max;
+    for (int ai = ii-1; ai >= 1; ai--) {
+        max = 0;
+        for (int ji = 1; ji <= ai; ji++) {
+            if (polje[ji].b[2] >= polje[max].b[2]) {
+               max=ji;
+            }
+        }
+        tmp = polje[max];
+        polje[max] = polje[ai];
+        polje[ai] = tmp;
+    }
+
+
+    for (int i = 0; i < ii; i++) {
+        EnQueueQ(polje[i], Q5);
+    }
+ispis2(Q5);
+
+}
+
+void ispis3(red *Q4){
+     klijent el;
+     int br=20;
+     while (br){
+           el=FrontQ(Q4);
+           DeQueueQ(Q4);
+           if (el.datum[0]==0) {
+                               }
+           else {
+           cout<<"Ime i prezime klijenta: "<<el.ime<<endl;
+           cout<<"Datum rodenja: "<<el.datum[0]<<"."<<el.datum[1]<<"."<<el.datum[2]<<"."<<endl;
+           cout<<"Prioritet klijenta: ";
+           if(el.b[2]==1) cout<<"Umirovljenik."<<endl;
+           if(el.b[2]==2) cout<<"Invalid."<<endl;
+           if(el.b[2]==3) cout<<"Trudnica."<<endl;
+           if(el.b[2]==4) cout<<"VIP."<<endl;
+           if(el.b[2]==5) cout<<"Ostali klijenti banke."<<endl;
+           if(el.b[2]==6) cout<<"Nisu klijenti banke."<<endl;
+           cout<<"Vrsta transakcije koju klijent zeli obaviti: ";
+           if(el.b[3]==1) cout<<"Uplata."<<endl;
+           if(el.b[3]==2) cout<<"Isplata."<<endl;
+           if(el.b[3]==3) cout<<"Placanje racuna."<<endl;
+           if(el.b[3]==4) cout<<"Kredit."<<endl;
+           cout<<"Stanje na kunskom racunu: "<<el.stanje<<endl;
+           cout<<"Stanje na deviznom racunu: "<<el.devizni<<endl;
+           cout<<"==================================================="<<endl;
+           }
+           br--;
+     
+     }
+}
+
+
+void sortiranje3(red *Q4){
+   
+    klijent *polje = new klijent[20];
+    klijent pomocni;
+    int ii = 0;
+    while (IsEmptyQ(Q4) == false) {
+        pomocni = FrontQ(Q4);
+        polje[ii] = pomocni; ii++;
+        DeQueueQ(Q4);
+    }
+
+  
+    klijent tmp;
+    int max;
+    for (int ai = ii-1; ai >= 1; ai--) {
+        max = 0;
+        for (int ji = 1; ji <= ai; ji++) {
+            if (polje[ji].b[2] >= polje[max].b[2]) {
+               max=ji;
+            }
+        }
+        tmp = polje[max];
+        polje[max] = polje[ai];
+        polje[ai] = tmp;
+    }
+
+    
+    for (int i = 0; i < ii; i++) {
+        EnQueueQ(polje[i], Q4);
+    }
+
+ispis3(Q4);
+
+}
+
+
+void dodavanje_klijenata(red *Q, red *Q2, red *Q3, red *Q4, red *Q5){
+     
+     
+    int N, br;
+    klijent el;
+    red x;
+    cout<<"Unesite broj klijenata: ";
+    cin>>N;
+    int a[N][4];
+    for (int i=0; i<N; i++){
+        
+        br=rand()%501;
+        while (br<100)
+              br=rand()%501;
+        a[i][0]=br;
+        br=rand()%501;
+        while (br<100)
+              br=rand()%501;
+        a[i][1]=br;
+        br=rand()%7;
+        while (br==0)
+              br=rand()%7;
+        a[i][2]=br;
+        br=rand()%5;
+        while (br==0)
+              br=rand()%5;
+        a[i][3]=br;
+        cout<<"Vrijednosti polja: "<<a[i][0]<<", "<<a[i][1]<<", "<<a[i][2]<<", "<<a[i][3]<<endl;
+    }
+     
+     int brojac=0;
+     int trans=1;
+     int h=0;
+     
+             
+             aa:
+             for (int k=0; k<150; k++){
+                 //cout<<"Vrijednosti polja: "<<a[k][0]<<", "<<a[k][1]<<", "<<a[k][2]<<", "<<a[k][3]<<endl;
+                 bb:
+                 if (a[k][3]==trans){
+                     //brojac=brojac++;
+                     if (a[k][2]==6&&(a[k][3]==2||a[k][3]==4)){ //ako nisi klijent banke ne mozes podic kredit niti trazit isplatu
+                        k++;
+                        goto bb;
+                     }
+                     //klijent el;
+                     int b[4];
+                     cout<<b[0]<<endl;
+                     cout<<"Ime i prezime klijenta: ";
+                     cin.ignore();
+                     cin.getline(el.ime,50);
+                     do{
+                       cout<<"Oprezno pri unosu datuma rodenja klijenta!"<<endl;
+                       cout<<"Unesite dan rodenja (0-31) (DD): ";
+                       cin>>el.datum[0];
+                       cout<<"Unesite mjesec rodenja (0-12) (MM): ";
+                       cin>>el.datum[1];
+                       cout<<"Unesite godinu rodenja (GGGG): ";
+                       cin>>el.datum[2];
+                       }while(!((el.datum[0]>0 && el.datum[0]<=31)&&(el.datum[1]>0 && el.datum[1]<=12)
+                       &&(el.datum[2]>=1910 && el.datum[2]<=2020)));
+                     cout<<"Stanje kunskog racuna: ";
+                     cin>>el.stanje;
+                     cout<<"Stanje deviznog racuna u eur: ";
+                     cin>>el.devizni;
+                     el.b[0]=a[k][0];
+                     el.b[1]=a[k][1];
+                     el.b[2]=a[k][2];
+                     el.b[3]=a[k][3];
+                     EnQueueQ(el, Q);
+                     EnQueueQ(el, Q3);
+                     brojac++;
+                     h++;
+                     //cout<<"BROJAC= "<<brojac<<endl;
+                     //cout<<"hh"<<endl;
+                     if (brojac==5){
+                                    //cout<<"d"<<endl;
+                                    brojac=0;
+                                    trans++;
+                                    if (trans==5) goto cc;
+                                    goto aa;
+                     }
+                 }
+                 
+             }
+             
+     cc:
+     sortiranje(Q);
+     while(!IsEmptyQ(Q)){
+       el = FrontQ(Q);
+       DeQueueQ(Q);
+       EnQueueQ(el, Q2);
+       if(el.devizni*7.5 > 10000){
+           cout << endl << endl;   
+           cout << "Klijenti sa vise od 10.000,00 kn na deviznom racunu: " << endl;         
+  	   cout << el.ime << endl;
+	       cout<<"Stanje na kunskom racunu: "<<el.stanje<<endl;
+           cout<<"Stanje na deviznom racunu: "<<el.devizni<<endl;
+		   cout << endl;
+		   cout << "VRSTA TRANSAKCIJE: " << endl;
+           if (el.b[3] == 1) 
+               cout << "uplata"; 
+           else if (el.b[3] == 2)
+               cout << "isplata"; 
+		   else if (el.b[3] == 3)
+                cout << "placanje racuna"; 
+           else if (el.b[3] == 4) 
+                cout << "trazenje kredita";  
+           cout << endl;
+           cout<<"STATUS KLIJENTA: "<<endl;		 
+		   if (el.b[2] == 1) 
+               cout << "umirovljenik"; 
+           else if (el.b[2] == 2)
+               cout << "invalid"; 
+		   else if (el.b[2] == 3)
+                cout << "trudnica"; 
+           else if (el.b[2] == 4) 
+                cout << "VIP klijent";
+           else if (el.b[2] == 5) 
+                cout << "Vostali klijenti";
+           else if (el.b[2] == 6) 
+                cout << "nije klijent banke"; 
+           cout<<endl;
+           }
+	}
+    
+     
+
+    cout<<"================================================"<<endl<<endl;
+
+
+while(!IsEmptyQ(Q3)){
+                          el = FrontQ(Q3);
+                          DeQueueQ(Q3);
+                          if (el.b[3]==3)
+                             EnQueueQ(el, Q4);
+                          else {
+                               EnQueueQ(el, Q5);
+                               }
+                               
+     }
+     cout<<"Ispis glavnog reda: "<<endl<<"============================="<<endl;
+     sortiranje2(Q5);
+     cout<<"Ispis sporednog reda: "<<endl<<"==============================="<<endl;
+     sortiranje3(Q4);
+
+}
+
+
+
+
+int main(){
+    char z;
+    char y;
+    srand(time(0));
+    klijent *polje = new klijent[20];
+    red *Q=InitQ(Q);
+    red *Q2=InitQ(Q2);
+    red *Q3=InitQ(Q3);
+    red *Q4=InitQ(Q4);
+    red *Q5=InitQ(Q5);
+    dodavanje_klijenata(Q,Q2,Q3,Q4,Q5);
+    
+    
+    system("pause");
+    return 0;
+}
