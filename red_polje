@@ -1,0 +1,51 @@
+struct klijent{
+  char ime[50];
+	int datum[3];
+	int stanje;
+	int devizni;
+	int b[4];
+};
+ 
+struct red{
+	klijent e[10000];
+	int p, z;
+};
+ 
+typedef struct red queue;
+typedef struct klijent element;
+ 
+red* InitQ(red *Q){
+    Q = new red;
+	Q -> p = 0;
+	Q -> z = 9999;
+	return Q;
+}
+ 
+int AddOne(int n)
+{
+	return ((n+1)%10000);
+}
+ 
+element FrontQ(red *Q)
+{
+    return Q -> e[Q -> p];    
+}
+ 
+void EnQueueQ(element x, red *Q)
+{
+    Q -> z = AddOne(Q -> z);
+    Q -> e[Q -> z] = x;
+}
+ 
+void DeQueueQ(red *Q)
+{
+	  Q -> p = AddOne(Q -> p);
+}
+ 
+bool IsEmptyQ(red *Q)
+{
+	if(AddOne(Q -> z) == Q -> p)
+		return true;
+	return false;
+}
+
