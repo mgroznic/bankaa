@@ -1,0 +1,60 @@
+struct klijent
+{
+  char ime[50];
+	int datum[3];
+	int stanje;
+	int devizni;
+	int b[4];
+};
+ 
+struct elem
+{
+	klijent e;
+	elem *s;
+};
+ 
+struct red
+{
+	elem *p,*z;
+};
+ 
+typedef struct klijent element;
+typedef struct red queue;
+ 
+red* InitQ(red *Q)
+{
+	elem *novi = new elem;
+	Q = new red;
+	novi -> s = NULL;
+	Q -> z = novi;
+	Q -> p = novi;
+	return Q;
+}
+ 
+klijent FrontQ(red *Q)
+{
+   return Q -> p -> s -> e;
+}
+ 
+void EnQueueQ(element x, red *Q)
+{
+	elem *novi = new elem;
+	novi -> e = x;
+	novi -> s = NULL;
+	Q -> z -> s = novi; 
+	Q -> z = novi;
+}
+ 
+void DeQueueQ(red *Q)
+{
+	elem *brisi = Q -> p;
+	Q -> p = brisi -> s;
+	delete brisi;
+}
+ 
+bool IsEmptyQ(red *Q)
+{
+	if(Q -> z == Q -> p)
+		return true;
+	return false;
+}
