@@ -239,7 +239,7 @@ void dodavanje_klijenata(red *Q, red *Q2, red *Q3, red *Q4, red *Q5){
         while (br==0)
               br=rand()%5;
         a[i][3]=br;
-        cout<<"Vrijednosti polja: "<<a[i][0]<<", "<<a[i][1]<<", "<<a[i][2]<<", "<<a[i][3]<<endl;
+        //cout<<"Vrijednosti polja: "<<a[i][0]<<", "<<a[i][1]<<", "<<a[i][2]<<", "<<a[i][3]<<endl;
     }
      
      int brojac=0;
